@@ -1,0 +1,40 @@
+@use 'srl';
+@use 'web';
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-gutter: stable;
+}
+
+html,
+body {
+  overscroll-behavior: none;
+}
+
+* {
+  scroll-margin-top: calc(srl.system-root-style(srl-header-height) + srl.spacer-get(400));
+}
+
+.fade-enter-from {
+  opacity: 0;
+}
+
+.fade-enter-to {
+  opacity: 1;
+}
+
+.fade-enter-active {
+  transition: opacity 300ms linear;
+}
+
+.fade-leave-from {
+  opacity: 1;
+}
+
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-leave-active {
+  transition: opacity 300ms linear;
+}

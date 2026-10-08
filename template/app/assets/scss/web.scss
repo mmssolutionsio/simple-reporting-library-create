@@ -1,0 +1,30 @@
+@use "srl";
+@use "./components/accordion";
+@use "./components/form";
+
+@include srl.system-add-root-style('srl-header-height', srl.system-size-unit(68));
+@include srl.system-add-root-style('srl-header-height', srl.system-size-unit(101), 'tablet-ls', 'up');
+
+// Set inline background images for media queries
+[style*="--medium-url"] {
+  background-image: var(--medium-url) !important;
+}
+
+@include srl.grid-media-up(tablet-pt) {
+  [style*="--large-url"] {
+    background-image: var(--large-url) !important;
+  }
+}
+
+@include srl.grid-media-up(desktop) {
+  [style*="--xlarge-url"] {
+    background-image: var(--xlarge-url) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation-name: none !important;
+  }
+}

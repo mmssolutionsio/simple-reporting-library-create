@@ -1,0 +1,115 @@
+@use 'srl';
+@use 'print';
+@use 'sass:map';
+
+$image-quality: map.get(srl.$meta, pdf, image-quality);
+$page-margin-top: srl.system-size-unit(map.get(srl.$meta, pdf, margin, top));
+$page-margin-right: srl.system-size-unit(map.get(srl.$meta, pdf, margin, right));
+$page-margin-bottom: srl.system-size-unit(map.get(srl.$meta, pdf, margin, bottom));
+$page-margin-left: srl.system-size-unit(map.get(srl.$meta, pdf, margin, left));
+
+/*
+  Basic styles for PDF
+*/
+img {
+  image-rendering: auto;
+  -ro-image-resampling: $image-quality;
+  -ro-pdf-tag-type: "Figure";
+
+  &[alt] {
+    -ro-pdf-tag-alt: attr(alt);
+  }
+}
+
+[style*="--xlarge-url"] {
+  background-image: var(--xlarge-url) !important;
+}
+
+/*
+  Basic layout for PDF
+*/
+@page {
+  margin: (
+          $page-margin-top
+          $page-margin-right
+          $page-margin-bottom
+          $page-margin-left
+  );
+  counter-increment: page 1;
+  -ro-bleed-width: 0mm;
+  -ro-media-size: A4;
+  -ro-crop-size: media;
+  -ro-truncate-margin-after-break: always;
+  -ro-truncate-margin-before-break: always;
+
+  @top-left-corner {
+    content: element(publicationTitle);
+    position: absolute;
+    top: srl.spacer-get(400);
+    left: $page-margin-left;
+    z-index: 1;
+  }
+
+  @top-left {
+    content: element(chapterNavigation);
+    position: absolute;
+    top: srl.spacer-get(400);
+    left: srl.grid-calculate-pdf-col-span-plus-one-gutter(2);
+    z-index: 1;
+  }
+
+  @top-right-corner {
+    content: counter(page);
+    position: absolute;
+    top: srl.spacer-get(400);
+    right: $page-margin-right;
+    z-index: 1;
+    @include srl.typography-pdf-header();
+  }
+}
+
+/*
+  Subscripts and superscripts
+*/
+.subscript,
+sub,
+.superscript,
+sup {
+  line-height: initial;
+}
+
+/*
+  Page breaks for PDF
+*/
+.srl-chapter,
+.srl-article {
+  break-after: always;
+
+  &:last-child {
+    break-after: avoid;
+  }
+}
+
+[class*="srl-category-notes_"],
+[class*="srl-category-notes-"],
+[class*="srl-category-note_"],
+[class*="srl-category-note-"] {
+  break-after: unset;
+
+  &.last-note {
+    break-after: always;
+  }
+}
+
+/*
+  Hold titles and the following component on the same page
+*/
+.srl-title-h1,
+.srl-title-h2,
+.srl-title-h3,
+.srl-title-h4,
+.srl-title-h5 {
+  & + * {
+    break-before: avoid;
+  }
+}

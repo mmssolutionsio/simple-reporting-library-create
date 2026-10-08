@@ -1,0 +1,106 @@
+{
+  "label": "skeleton",
+  "author": "nsgroup",
+  "wrapper": "<div class=\"srl-article-root doc-section\"></div>",
+  "imageRatios": {
+    "cover": {
+      "label": "Cover",
+      "ratio": "210x205"
+    },
+    "a4": {
+      "label": "A4",
+      "ratio": "70x99"
+    },
+    "3:2": {
+      "label": "3:2",
+      "ratio": "3x2"
+    },
+    "1:1": {
+      "label": "1:1",
+      "ratio": "1x1"
+    },
+    "4:3": {
+      "label": "4:3",
+      "ratio": "4x3"
+    },
+    "16:9": {
+      "label": "16:9",
+      "ratio": "16x9"
+    }
+  },
+  "defaultComponents": {
+    "paragraph": "paragraph",
+    "image": "image"
+  },
+  "defaultContent": [
+    {
+      "component": "title-h1"
+    },
+    {
+      "component": "lead"
+    },
+    {
+      "component": "paragraph"
+    }
+  ],
+  "prefilledComponents": {},
+  "metadata": [
+    {
+      "identifier": "wp_cf_prettyTitle",
+      "type": "text",
+      "matches": [
+        "title-h1.title-h1",
+        "title-h2.title-h2-text",
+        "title-h3.title-h3-text",
+        "title-h4.title-h4-text",
+        "title-h5.title-h5",
+        "title-h6.title-h6"
+      ]
+    },
+    {
+      "identifier": "menuTitle",
+      "type": "text",
+      "matches": [
+        "title-h1.title-h1",
+        "title-h2.title-h2-text",
+        "title-h3.title-h3-text",
+        "title-h4.title-h4-text",
+        "title-h5.title-h5",
+        "title-h6.title-h6"
+      ]
+    },
+    {
+      "identifier": "wp_cf_prettyNumber",
+      "type": "text",
+      "matches": [
+        "title-h2.title-h2-number",
+        "title-h3.title-h3-number",
+        "title-h4.title-h4-number"
+      ]
+    },
+    {
+      "identifier": "notesIdentifier",
+      "type": "text",
+      "matches": [
+        "title-h2.title-h2-number",
+        "title-h3.title-h3-number",
+        "title-h4.title-h4-number"
+      ]
+    },
+    {
+      "identifier": "wp_cf_excerpt",
+      "type": "text",
+      "matches": [
+        "lead.lead",
+        "paragraph.paragraph"
+      ]
+    },
+    {
+      "identifier": "wp_img-cf_featuredImage",
+      "type": "image",
+      "matches": [
+        "image.desktop-image"
+      ]
+    }
+  ]
+}

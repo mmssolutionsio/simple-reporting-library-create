@@ -1,11 +1,11 @@
 {
-  "name": "create-simple-reporting",
+  "name": "@simple-reporting/create",
   "version": "2.0.0-alpha.0",
-  "description": "Create a new Simple Reporting Library 2 project: npm create simple-reporting@latest <folder>",
+  "description": "Create a new Simple Reporting Library 2 project: npm create @simple-reporting@alpha <folder>",
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "ISC",
   "bin": {
-    "create-simple-reporting": "./index.mjs"
+    "create": "./index.mjs"
   },
   "files": [
     "index.mjs",
@@ -17,5 +17,14 @@
   },
   "dependencies": {
     "@clack/prompts": "^1.8.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/multivisio/srl-create.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "alpha"
+  },
+  "author": "MULTIVISIO / mms solutions"
 }

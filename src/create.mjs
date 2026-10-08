@@ -1,4 +1,4 @@
-// npm create simple-reporting@latest <folder> [--livingdocs <pkg>|none] [--yes] [--no-install] [--no-git]
+// npm create @simple-reporting@alpha <folder> [--livingdocs <pkg>|none] [--yes] [--no-install] [--no-git]
 import { execFileSync } from 'node:child_process'
 import { cpSync, existsSync, readdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs'
 import { basename, join, resolve } from 'node:path'
@@ -83,10 +83,10 @@ export async function create(options) {
 
 export async function main(argv) {
   const args = parseCliArgs(argv)
-  p.intro(`create-simple-reporting ${ownPackage.version}`)
+  p.intro(`@simple-reporting/create ${ownPackage.version}`)
   let folder = args.folder
   if (!folder) {
-    if (args.yes) throw new Error('Pass the project folder: npm create simple-reporting@latest <folder>')
+    if (args.yes) throw new Error('Pass the project folder: npm create @simple-reporting@alpha <folder>')
     const answer = await p.text({ message: 'Project folder', placeholder: 'my-report' })
     if (p.isCancel(answer)) return p.cancel('Cancelled.')
     folder = answer

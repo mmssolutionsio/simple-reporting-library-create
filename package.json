@@ -1,0 +1,21 @@
+{
+  "name": "create-simple-reporting",
+  "version": "2.0.0-alpha.0",
+  "description": "Create a new Simple Reporting Library 2 project: npm create simple-reporting@latest <folder>",
+  "type": "module",
+  "license": "UNLICENSED",
+  "bin": {
+    "create-simple-reporting": "./index.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "src",
+    "template"
+  ],
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.8.1"
+  }
+}

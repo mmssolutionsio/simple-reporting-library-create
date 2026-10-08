@@ -1,0 +1,12 @@
+node_modules/
+.nuxt/
+.nuxt-preview/
+.output/
+.data/
+.srl/
+dist/
+.env
+.env.*.local
+
+# nswow content (imported with `npx srl data import`, provided by nswow for the build)
+/data/

@@ -54,6 +54,8 @@ export async function create(options) {
   cpSync(templateDir, target, { recursive: true })
   // npm strips .gitignore from published packages
   if (existsSync(join(target, '_gitignore'))) renameSync(join(target, '_gitignore'), join(target, '.gitignore'))
+  // VS Code: Some Sass finds `@use 'srl'` in the generated srl/ folder through the load path "."
+  if (existsSync(join(target, '_vscode'))) renameSync(join(target, '_vscode'), join(target, '.vscode'))
 
   const pkgFile = join(target, 'package.json')
   const pkg = JSON.parse(readFileSync(pkgFile, 'utf8'))
